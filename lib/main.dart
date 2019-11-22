@@ -19,6 +19,11 @@ class StemApp extends StatelessWidget {
         '/home': (context) => Scaffold(
               appBar: AppBar(
                 title: Text(kAppName),
+                leading: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.arrow_back),
+                  color: Colors.white,
+                ),
               ),
               body: HomeScreen(),
             ),
