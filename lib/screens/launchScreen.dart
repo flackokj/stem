@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:stem/const.dart';
+
+//WIDGETS IMPORT
 import 'package:stem/widgets/customWidgets.dart';
 
 class LaunchScreen extends StatelessWidget {
   void signIn(BuildContext context) {
-    Navigator.pushReplacementNamed(context, '/home');
+    Navigator.pushNamed(context, '/home');
   }
 
   @override

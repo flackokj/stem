@@ -29,36 +29,37 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: <Widget>[
           Expanded(
-            child: Stepper(
-              type: StepperType.horizontal,
-              currentStep: _currenState,
-              steps: [
-                getStep(
-                  title: 'Partij',
-                  child: Text(
-                    'Kies eentje...',
-                  ),
-                  isActive: true,
-                ),
-                getStep(
-                  title: 'Stem',
-                  child: Text(
-                    'Info...',
-                  ),
-                  isActive: _currenState >= 1 ? true : false,
-                ),
-              ],
-              onStepContinue: () {
-                setState(() {
-                  _currenState = (_currenState + 1) > 1 ? 1 : _currenState + 1;
-                });
-              },
-              onStepCancel: () {
-                setState(() {
-                  _currenState = (_currenState - 1) < 0 ? 0 : _currenState - 1;
-                });
-              },
-            ),
+            child: PartijGrid(),
+            // Stepper(
+            //   type: StepperType.horizontal,
+            //   currentStep: _currenState,
+            //   steps: [
+            //     getStep(
+            //       title: 'Partij',
+            //       child: Text(
+            //         'kies eentje...',
+            //       ),
+            //       isActive: true,
+            //     ),
+            //     getStep(
+            //       title: 'Stem',
+            //       child: Text(
+            //         'Info...',
+            //       ),
+            //       isActive: _currenState >= 1 ? true : false,
+            //     ),
+            //   ],
+            //   onStepContinue: () {
+            //     setState(() {
+            //       _currenState = (_currenState + 1) > 1 ? 1 : _currenState + 1;
+            //     });
+            //   },
+            //   onStepCancel: () {
+            //     setState(() {
+            //       _currenState = (_currenState - 1) < 0 ? 0 : _currenState - 1;
+            //     });
+            //   },
+            // ),
           ),
         ],
       ),
