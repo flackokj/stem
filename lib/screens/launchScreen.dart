@@ -19,12 +19,12 @@ class LaunchScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 100),
             child: Image.asset(
-              'assets/images/stem.png',
+              'assets/images/stem_.png',
               fit: BoxFit.contain,
             ),
           ),
           SizedBox(
-            height: 200.0,
+            height: 150.0,
           ),
           LoginButton(
             label: 'Google Sign In',

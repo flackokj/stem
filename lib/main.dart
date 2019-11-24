@@ -4,6 +4,7 @@ import 'const.dart';
 import 'package:stem/screens/launchScreen.dart';
 import 'package:stem/screens/homeScreen.dart';
 import 'package:stem/screens/infoScreen.dart';
+import 'package:stem/screens/chartScreen.dart';
 
 void main() => runApp(StemApp());
 
@@ -11,6 +12,7 @@ class StemApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) => Scaffold(
@@ -24,8 +26,17 @@ class StemApp extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   icon: Icon(Icons.arrow_back),
-                  color: Colors.green,
+                  color: Colors.red,
                 ),
+                actions: <Widget>[
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/chart');
+                    },
+                    icon: Icon(Icons.insert_chart),
+                    color: Colors.red,
+                  ),
+                ],
               ),
               body: HomeScreen(),
             ),
@@ -46,6 +57,18 @@ class StemApp extends StatelessWidget {
                 ),
               ),
               body: InfoScreen(),
+            ),
+        '/chart': (context) => Scaffold(
+              appBar: AppBar(
+                leading: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.arrow_back),
+                  color: Colors.yellow[600],
+                ),
+              ),
+              body: ChartScreen(),
             ),
       },
       theme: ThemeData(
