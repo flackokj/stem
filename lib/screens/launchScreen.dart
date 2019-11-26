@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stem/const.dart';
+// import 'package:stem/const.dart';
 
 //WIDGETS IMPORT
 import 'package:stem/widgets/customWidgets.dart';
@@ -19,7 +19,7 @@ class LaunchScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 100),
             child: Image.asset(
-              'assets/images/stem_.png',
+              'assets/images/logo/stem_.png',
               fit: BoxFit.contain,
             ),
           ),

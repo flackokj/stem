@@ -1,0 +1,37 @@
+[
+    {
+        "index": 0,
+        "naam": "NDP",
+        "details": "NDP is een Surinaamse politieke partij!"
+    },
+    {
+        "index": 1,
+        "naam": "VHP",
+        "details": "VHP is een Surinaamse politieke partij!"
+    },
+    {
+        "index": 2,
+        "naam": "NPS",
+        "details": "NPS is een Surinaamse politieke partij!"
+    },
+    {
+        "index": 3,
+        "naam": "ABOP",
+        "details": "ABOP is een Surinaamse politieke partij!"
+    },
+    {
+        "index": 4,
+        "naam": "PL",
+        "details": "PL is een Surinaamse politieke partij!"
+    },
+    {
+        "index": 5,
+        "naam": "DOE",
+        "details": "DOE is een Surinaamse politieke partij!"
+    },
+    {
+        "index": 6,
+        "naam": "BS",
+        "details": "BS is een Surinaamse politieke partij!"
+    }
+]

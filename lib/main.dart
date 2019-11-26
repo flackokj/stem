@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'const.dart';
 
 import 'package:stem/screens/launchScreen.dart';
 import 'package:stem/screens/homeScreen.dart';

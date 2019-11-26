@@ -9,7 +9,10 @@ class InfoScreen extends StatelessWidget {
       margin: EdgeInsets.all(10),
       child: Column(
         children: <Widget>[
-          InfoCard(),
+          InfoCard(
+            details:
+                'fkdjuewgoweiuth lweghlskdge lwuifh sdlaoguiwe ;igu;eiuf g;weiu g;dsjg ,ksdj lisdg fhjasdgf jasdhg, dhf ',
+          ),
           Container(
             margin: EdgeInsets.all(10),
           ),

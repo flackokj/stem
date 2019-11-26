@@ -86,12 +86,18 @@ class CardsGrid extends StatelessWidget {
               getInfo(context);
             },
             child: Card(
+              semanticContainer: true,
+              clipBehavior: Clip.antiAliasWithSaveLayer,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
               elevation: 3,
               child: Container(
                 child: Center(
+                  // child: Image.asset(
+                  //   'assets/images/partij/NDP.png',
+                  //   fit: BoxFit.fill,
+                  // ),
                   child: Text(
                     'Item $index',
                     style: Theme.of(context).textTheme.headline,
@@ -107,6 +113,9 @@ class CardsGrid extends StatelessWidget {
 }
 
 class InfoCard extends StatelessWidget {
+  final String details;
+  InfoCard({this.details});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -119,11 +128,13 @@ class InfoCard extends StatelessWidget {
         elevation: 3,
         child: Container(
           margin: EdgeInsets.all(10),
-          child: Text(
-            'sHiug ugp;oig uguf yugom. UGKf dykf oyfiyuygpiv yfkjh, ligiuyg. kuyfikhvkhfG YUtoliug.',
-            style: TextStyle(
-              color: Colors.green,
-              fontSize: 16,
+          child: Center(
+            child: Text(
+              details,
+              style: TextStyle(
+                color: Colors.green,
+                fontSize: 16,
+              ),
             ),
           ),
         ),
