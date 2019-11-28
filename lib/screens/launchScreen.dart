@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-// import 'package:stem/const.dart';
+import 'package:stem/screens/homeScreen.dart';
 
-//WIDGETS IMPORT
+//IMPORT WIDGETS
 import 'package:stem/widgets/customWidgets.dart';
 
 class LaunchScreen extends StatelessWidget {
   void signIn(BuildContext context) {
-    Navigator.pushNamed(context, '/home');
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomeScreen(),
+      ),
+    );
   }
 
   @override
@@ -25,10 +30,6 @@ class LaunchScreen extends StatelessWidget {
           ),
           SizedBox(
             height: 150.0,
-          ),
-          LoginButton(
-            label: 'Google Sign In',
-            onPressed: () {},
           ),
           SizedBox(
             height: 10.0,

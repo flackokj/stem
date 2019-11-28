@@ -63,8 +63,9 @@ class LoginButton extends StatelessWidget {
 }
 
 class InfoCard extends StatelessWidget {
-  // final String detail;
-  // InfoCard({this.detail});
+  final String detail;
+
+  InfoCard({this.detail});
 
   @override
   Widget build(BuildContext context) {
@@ -77,14 +78,12 @@ class InfoCard extends StatelessWidget {
         ),
         elevation: 3,
         child: Container(
-          margin: EdgeInsets.all(10),
-          child: Center(
-            child: Text(
-              '',
-              style: TextStyle(
-                color: Colors.green,
-                fontSize: 16,
-              ),
+          margin: EdgeInsets.all(20),
+          child: Text(
+            detail,
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 16,
             ),
           ),
         ),
@@ -100,8 +99,8 @@ class LoadingText extends StatelessWidget {
       child: Text(
         'Momentje...',
         style: TextStyle(
-          color: Colors.yellow[600],
-          fontSize: 24,
+          color: Colors.red[600],
+          fontSize: 20,
         ),
       ),
     );

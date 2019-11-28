@@ -3,8 +3,12 @@ import 'package:stem/models/partij.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:stem/screens/chartScreen.dart';
+
+//IMPORT SCREENS
 import 'package:stem/screens/infoScreen.dart';
 
+//IMPORT WIDGETS
 import 'package:stem/widgets/customWidgets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,10 +17,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  void previousPage(BuildContext context) {
-    Navigator.pushReplacementNamed(context, '/');
-  }
-
   Future<String> _loadPartij() async {
     return await rootBundle.loadString('assets/partij.json');
   }
@@ -29,9 +29,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     for (var i in jsonResponse) {
       Partij partij = Partij(
-        details: i["details"],
         index: i["index"],
         naam: i["naam"],
+        details: i["details"],
+        logo: i["logo"],
       );
       partijList.add(partij);
     }
@@ -39,8 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
     print(partijList.length);
     return partijList;
   }
-
-  List partijen = [];
 
   @override
   Widget build(BuildContext context) {
@@ -50,49 +49,79 @@ class _HomeScreenState extends State<HomeScreen> {
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
     final double itemWidth = size.width / 2;
 
-    _getPartij().then((partij) {
-      partijen = partij;
-    }).catchError((onError) {
-      print(onError);
-    });
-
-    return Container(
-      child: GridView.count(
-        crossAxisCount: 2,
-        childAspectRatio: (itemWidth / itemHeight),
-        controller: ScrollController(keepScrollOffset: false),
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-        children: partijen.map((var value) {
-          return Container(
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => InfoScreen(detail: value.index),
-                  ),
-                );
-              },
-              child: Card(
-                semanticContainer: true,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+          color: Colors.red,
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChartScreen(),
                 ),
-                elevation: 3,
-                child: Container(
-                  child: Center(
-                    child: Text(
-                      value.naam,
-                      style: Theme.of(context).textTheme.headline,
+              );
+            },
+            icon: Icon(Icons.insert_chart),
+            color: Colors.red,
+          ),
+        ],
+      ),
+      body: Container(
+        child: FutureBuilder(
+          future: _getPartij(),
+          builder: (BuildContext context, AsyncSnapshot value) {
+            if (value.data == null) {
+              return Container(
+                child: LoadingText(),
+              );
+            } else {
+              return GridView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: value.data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => InfoScreen(
+                              partij: value.data[index],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Card(
+                        semanticContainer: true,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        child: Image.network(
+                          value.data[index].logo,
+                          fit: BoxFit.fill,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        elevation: 3,
+                      ),
                     ),
-                  ),
+                  );
+                },
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: (itemWidth / itemHeight),
                 ),
-              ),
-            ),
-          );
-        }).toList(),
+              );
+            }
+          },
+        ),
       ),
     );
   }

@@ -1,29 +1,51 @@
 import 'package:flutter/material.dart';
 
+//IMPORT WIDGETS
 import 'package:stem/widgets/customWidgets.dart';
 
-class InfoScreen extends StatelessWidget {
-  final String detail;
+//IMPORT MODELS
+import 'package:stem/models/partij.dart';
 
-  InfoScreen({this.detail});
+class InfoScreen extends StatelessWidget {
+  final Partij partij;
+  InfoScreen({this.partij});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10),
-      child: Column(
-        children: <Widget>[
-          InfoCard(),
-          Container(
-            margin: EdgeInsets.all(10),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          partij.naam,
+          style: TextStyle(
+            color: Colors.green,
           ),
-          StemButton(
-            label: 'Stem!',
-            onPressed: () {
-              print('U heeft succesvol gestemd!');
-            },
-          ),
-        ],
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+          color: Colors.green,
+        ),
+      ),
+      body: Container(
+        margin: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            InfoCard(
+              detail: partij.details,
+            ),
+            Container(
+              margin: EdgeInsets.all(10),
+            ),
+            StemButton(
+              label: 'Stem!',
+              onPressed: () {
+                print('U heeft succesvol gestemd!');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

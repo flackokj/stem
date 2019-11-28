@@ -2,36 +2,43 @@
     {
         "index": 0,
         "naam": "NDP",
-        "details": "NDP is een Surinaamse politieke partij!"
+        "details": "NDP is een Surinaamse politieke partij!",
+        "logo": "https://i.postimg.cc/s2SrR2Cj/NDP.png"
     },
     {
         "index": 1,
         "naam": "VHP",
-        "details": "VHP is een Surinaamse politieke partij!"
+        "details": "VHP is een Surinaamse politieke partij!",
+        "logo": "https://i.postimg.cc/15cBbhjk/VHP.png"
     },
     {
         "index": 2,
         "naam": "NPS",
-        "details": "NPS is een Surinaamse politieke partij!"
+        "details": "NPS is een Surinaamse politieke partij!",
+        "logo": ""
     },
     {
         "index": 3,
         "naam": "ABOP",
-        "details": "ABOP is een Surinaamse politieke partij!"
+        "details": "ABOP is een Surinaamse politieke partij!",
+        "logo": ""
     },
     {
         "index": 4,
         "naam": "PL",
-        "details": "PL is een Surinaamse politieke partij!"
+        "details": "PL is een Surinaamse politieke partij!",
+        "logo": ""
     },
     {
         "index": 5,
         "naam": "DOE",
-        "details": "DOE is een Surinaamse politieke partij!"
+        "details": "DOE is een Surinaamse politieke partij!",
+        "logo": ""
     },
     {
         "index": 6,
         "naam": "BS",
-        "details": "BS is een Surinaamse politieke partij!"
+        "details": "BS betekent bullshit!",
+        "logo": ""
     }
 ]
