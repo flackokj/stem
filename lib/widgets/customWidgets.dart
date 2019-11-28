@@ -62,59 +62,9 @@ class LoginButton extends StatelessWidget {
   }
 }
 
-class CardsGrid extends StatelessWidget {
-  void getInfo(BuildContext context) {
-    Navigator.pushNamed(context, '/info');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
-    /*24 is for notification bar on Android*/
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
-    final double itemWidth = size.width / 2;
-
-    return Container(
-      child: GridView.count(
-        //creates 2 columns
-        crossAxisCount: 2,
-        childAspectRatio: (itemWidth / itemHeight),
-        children: List.generate(20, (index) {
-          return GestureDetector(
-            onTap: () {
-              getInfo(context);
-            },
-            child: Card(
-              semanticContainer: true,
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5),
-              ),
-              elevation: 3,
-              child: Container(
-                child: Center(
-                  // child: Image.asset(
-                  //   'assets/images/partij/NDP.png',
-                  //   fit: BoxFit.fill,
-                  // ),
-                  child: Text(
-                    'Item $index',
-                    style: Theme.of(context).textTheme.headline,
-                  ),
-                ),
-              ),
-            ),
-          );
-        }),
-      ),
-    );
-  }
-}
-
 class InfoCard extends StatelessWidget {
-  final String details;
-  InfoCard({this.details});
+  // final String detail;
+  // InfoCard({this.detail});
 
   @override
   Widget build(BuildContext context) {
@@ -130,13 +80,28 @@ class InfoCard extends StatelessWidget {
           margin: EdgeInsets.all(10),
           child: Center(
             child: Text(
-              details,
+              '',
               style: TextStyle(
                 color: Colors.green,
                 fontSize: 16,
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class LoadingText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        'Momentje...',
+        style: TextStyle(
+          color: Colors.yellow[600],
+          fontSize: 24,
         ),
       ),
     );

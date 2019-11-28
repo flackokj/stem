@@ -11,7 +11,7 @@ class Partij {
   final String naam;
   final String details;
 
-  Partij(this.index, this.naam, this.details);
+  Partij({this.index, this.naam, this.details});
 }
 
 class Voter {
