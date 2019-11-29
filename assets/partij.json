@@ -2,43 +2,43 @@
     {
         "index": 0,
         "naam": "NDP",
-        "details": "NDP is een Surinaamse politieke partij!",
-        "logo": "https://i.postimg.cc/s2SrR2Cj/NDP.png"
+        "details": "De Nationale Democratische Partij is een multi-etnische politieke partij in Suriname. Het werd opgericht op 4 juli 1987 door de Surinaamse leider Dési Bouterse. Bij de algemene verkiezingen van 2015 scoorde de partij 45,56% van de stemmen en 26 van de 51 zetels in het parlement.",
+        "logo": "https://i.postimg.cc/s2SrR2Cj/NDP.png",
+        "stem": 103
     },
     {
         "index": 1,
         "naam": "VHP",
-        "details": "VHP is een Surinaamse politieke partij!",
-        "logo": "https://i.postimg.cc/15cBbhjk/VHP.png"
+        "details": "De Progressive Reform Party, voorheen bekend als de 'Verenigde Hindoestaanse Partij', is een politieke partij in Suriname. Bij de laatste parlementsverkiezingen maakte de partij deel uit van de politieke combinatie Nieuw Front die 31,6% van de populaire stemmen en veertien van de eenenvijftig zetels in de Nationale Vergadering won.",
+        "logo": "https://i.postimg.cc/15cBbhjk/VHP.png",
+        "stem": 63
     },
     {
         "index": 2,
         "naam": "NPS",
-        "details": "NPS is een Surinaamse politieke partij!",
-        "logo": ""
+        "details": "De Nationale Partij van Suriname is een politieke partij in Suriname, opgericht in 1946 en sinds juni 2012 geleid door Gregory Rusland. Lange tijd was het de grootste regerende partij in het land, en het is al meer dan 40 jaar in de regering.",
+        "logo": "https://i.postimg.cc/9FpR4SB2/NPS.png",
+        "stem": 36
     },
     {
         "index": 3,
         "naam": "ABOP",
-        "details": "ABOP is een Surinaamse politieke partij!",
-        "logo": ""
+        "details": "De Algemene Bevrijdings- en Ontwikkelingspartij is een politieke partij in Suriname, opgericht en voorgezeten door ex-rebellenleider en veroordeelde Ronnie Brunswijk in 1991.",
+        "logo": "https://i.postimg.cc/QCgBJnGp/ABOP.png ",
+        "stem": 80
     },
     {
         "index": 4,
         "naam": "PL",
-        "details": "PL is een Surinaamse politieke partij!",
-        "logo": ""
+        "details": "De Pertjajah Luhur (PL) is een Javaanse politieke partij in Suriname. Bij de laatste parlementsverkiezingen (25 mei 2010) maakte de partij deel uit van de People's Alliance for Progress, die 13,0% van de populaire stemmen en zes van de 51 zetels in de Nationale Vergadering won. Van deze zes stoelen gingen ze allemaal naar de PL. Paul Somohardjo is de leider van de partij.",
+        "logo": "https://i.postimg.cc/y60SKWgk/PL.png",
+        "stem": 48
     },
     {
         "index": 5,
         "naam": "DOE",
-        "details": "DOE is een Surinaamse politieke partij!",
-        "logo": ""
-    },
-    {
-        "index": 6,
-        "naam": "BS",
-        "details": "BS betekent bullshit!",
-        "logo": ""
+        "details": "Democratie en ontwikkeling in eenheid is een politieke partij in Suriname. Bij de laatste parlementsverkiezingen ontving de partij 12.095 stemmen en één zetel in de Nationale Vergadering. Hun leider Carl Breeveld is lid sinds 2010. De partij is een hervormingsgezinde partij. De partij werd opgericht op 2 december 1999.",
+        "logo": "https://i.postimg.cc/65w4pwnz/DOE.png",
+        "stem": 23
     }
 ]

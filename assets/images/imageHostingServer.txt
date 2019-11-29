@@ -1,42 +1,29 @@
 ///---NDP---///
-Link:
-https://postimg.cc/rd8b1Mp3
 Direct link:
 https://i.postimg.cc/s2SrR2Cj/NDP.png
- Markdown:
-[NDP.png](https://postimg.cc/rd8b1Mp3)
-  Markdown:
-[![NDP.png](https://i.postimg.cc/s2SrR2Cj/NDP.png)](https://postimg.cc/rd8b1Mp3)
-Thumbnail for forums:
-[url=https://postimg.cc/rd8b1Mp3][img]https://i.postimg.cc/rd8b1Mp3/NDP.png[/img][/url]
-Thumbnail for website:
-<a href='https://postimg.cc/rd8b1Mp3' target='_blank'><img src='https://i.postimg.cc/rd8b1Mp3/NDP.png' border='0' alt='NDP'/></a>
-Hotlink for forums:
-[url=https://postimages.org/][img]https://i.postimg.cc/s2SrR2Cj/NDP.png[/img][/url]
-Hotlink for website:
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/s2SrR2Cj/NDP.png' border='0' alt='NDP'/></a>
-Removal link:
-https://postimg.cc/delete/Fwb4FL30/6a990aba
-
 
 
 ///---VHP---///
-Link:
-https://postimg.cc/MvH1j4x5
 Direct link:
 https://i.postimg.cc/15cBbhjk/VHP.png
- Markdown:
-[VHP.png](https://postimg.cc/MvH1j4x5)
-  Markdown:
-[![VHP.png](https://i.postimg.cc/15cBbhjk/VHP.png)](https://postimg.cc/MvH1j4x5)
-Thumbnail for forums:
-[url=https://postimg.cc/MvH1j4x5][img]https://i.postimg.cc/MvH1j4x5/VHP.png[/img][/url]
-Thumbnail for website:
-<a href='https://postimg.cc/MvH1j4x5' target='_blank'><img src='https://i.postimg.cc/MvH1j4x5/VHP.png' border='0' alt='VHP'/></a>
-Hotlink for forums:
-[url=https://postimages.org/][img]https://i.postimg.cc/15cBbhjk/VHP.png[/img][/url]
-Hotlink for website:
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/15cBbhjk/VHP.png' border='0' alt='VHP'/></a>
-Removal link:
-https://postimg.cc/delete/hwMMnPXh/232cb273
+
+
+///---NPS---///
+Direct link:
+https://i.postimg.cc/9FpR4SB2/NPS.png
+
+
+///---PL---///
+Direct link:
+https://i.postimg.cc/y60SKWgk/PL.png
+
+
+///---ABOP---///
+Direct link:
+https://i.postimg.cc/QCgBJnGp/ABOP.png  
+
+
+///---DOE---///
+Direct link:
+https://i.postimg.cc/65w4pwnz/DOE.png
 

@@ -95,14 +95,6 @@ class InfoCard extends StatelessWidget {
 class LoadingText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Momentje...',
-        style: TextStyle(
-          color: Colors.red[600],
-          fontSize: 20,
-        ),
-      ),
-    );
+    return Container();
   }
 }

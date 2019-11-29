@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stem/screens/chartScreen.dart';
 
 //IMPORT WIDGETS
 import 'package:stem/widgets/customWidgets.dart';
@@ -28,23 +29,41 @@ class InfoScreen extends StatelessWidget {
           color: Colors.green,
         ),
       ),
-      body: Container(
-        margin: EdgeInsets.all(10),
-        child: Column(
-          children: <Widget>[
-            InfoCard(
-              detail: partij.details,
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-            ),
-            StemButton(
-              label: 'Stem!',
-              onPressed: () {
-                print('U heeft succesvol gestemd!');
-              },
-            ),
-          ],
+      body: Builder(
+        builder: (context) => Container(
+          margin: EdgeInsets.all(10),
+          child: Column(
+            children: <Widget>[
+              InfoCard(
+                detail: partij.details,
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+              ),
+              StemButton(
+                label: 'Stem!',
+                onPressed: () {
+                  print('U heeft succesvol gestemd op ' + partij.naam + '!');
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        'Geweldig!\n' 'U heeft gestemd op ' + partij.naam + '!',
+                      ),
+                      duration: Duration(
+                        seconds: 4,
+                      ),
+                    ),
+                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => ChartScreen(),
+                  //   ),
+                  // );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
