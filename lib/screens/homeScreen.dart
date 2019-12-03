@@ -41,6 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return partijList;
   }
 
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -80,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (BuildContext context, AsyncSnapshot value) {
             if (value.data == null) {
               return Container(
-                child: LoadingText(),
+                child: Loading(),
               );
             } else {
               return GridView.builder(
@@ -102,10 +104,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Card(
                         semanticContainer: true,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Image.network(
-                          value.data[index].logo,
-                          fit: BoxFit.fill,
-                        ),
+                        child: isLoading
+                            ? Container(
+                                child: Loading(),
+                              )
+                            : Image.network(
+                                value.data[index].logo,
+                                fit: BoxFit.fill,
+                              ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),

@@ -29,10 +29,7 @@ class LaunchScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 150.0,
-          ),
-          SizedBox(
-            height: 10.0,
+            height: 200.0,
           ),
           LoginButton(
             label: 'Anoniem Sign In',

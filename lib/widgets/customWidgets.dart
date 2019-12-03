@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 
 class StemButton extends StatelessWidget {
   final String label;
@@ -92,9 +93,34 @@ class InfoCard extends StatelessWidget {
   }
 }
 
-class LoadingText extends StatelessWidget {
+class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(
+        child: CircularProgressIndicator(
+          backgroundColor: Colors.red,
+          strokeWidth: 5,
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.red[300]),
+        ),
+      ),
+    );
+  }
+}
+
+class CreateChart extends StatelessWidget {
+  var getData;
+
+  CreateChart({this.getData});
+
+  @override
+  Widget build(BuildContext context) {
+    return charts.BarChart(
+      getData,
+      animate: true,
+      barRendererDecorator: charts.BarLabelDecorator<String>(
+        insideLabelStyleSpec: new charts.TextStyleSpec(),
+      ),
+    );
   }
 }

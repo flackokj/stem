@@ -19,7 +19,6 @@ class Voter {
 class StemData {
   String partij;
   int stemmen;
-  Color color;
 
-  StemData({this.partij, this.stemmen, this.color});
+  StemData({this.partij, this.stemmen});
 }
