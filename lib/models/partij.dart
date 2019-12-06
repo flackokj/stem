@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Partij {
   final int index;
   final String naam;
@@ -8,6 +6,16 @@ class Partij {
   final int stemmen;
 
   Partij({this.index, this.naam, this.details, this.logo, this.stemmen});
+
+  factory Partij.fromJson(Map<String, dynamic> json) {
+    return Partij(
+      index: json['index'],
+      naam: json['naam'],
+      details: json['details'],
+      logo: json['logo'],
+      stemmen: json['stem'],
+    );
+  }
 }
 
 class Voter {
@@ -21,4 +29,11 @@ class StemData {
   int stemmen;
 
   StemData({this.partij, this.stemmen});
+
+  factory StemData.fromJson(Map<String, dynamic> json) {
+    return StemData(
+      partij: json['naam'],
+      stemmen: json['stem'],
+    );
+  }
 }

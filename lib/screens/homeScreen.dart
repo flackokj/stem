@@ -29,15 +29,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
     for (var i in jsonResponse) {
       Partij partij = Partij(
-        index: i["index"],
-        naam: i["naam"],
-        details: i["details"],
-        logo: i["logo"],
+        index: i['index'],
+        naam: i['naam'],
+        details: i['details'],
+        logo: i['logo'],
       );
       partijList.add(partij);
     }
 
-    print(partijList.length);
+    // print(partijList.length);
     return partijList;
   }
 
@@ -80,52 +80,51 @@ class _HomeScreenState extends State<HomeScreen> {
         child: FutureBuilder(
           future: _getPartij(),
           builder: (BuildContext context, AsyncSnapshot value) {
-            if (value.data == null) {
+            if (!value.hasData) {
               return Container(
                 child: Loading(),
               );
-            } else {
-              return GridView.builder(
-                physics: BouncingScrollPhysics(),
-                itemCount: value.data.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => InfoScreen(
-                              partij: value.data[index],
-                            ),
-                          ),
-                        );
-                      },
-                      child: Card(
-                        semanticContainer: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: isLoading
-                            ? Container(
-                                child: Loading(),
-                              )
-                            : Image.network(
-                                value.data[index].logo,
-                                fit: BoxFit.fill,
-                              ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        elevation: 3,
-                      ),
-                    ),
-                  );
-                },
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: (itemWidth / itemHeight),
-                ),
-              );
             }
+            return GridView.builder(
+              physics: BouncingScrollPhysics(),
+              itemCount: value.data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InfoScreen(
+                            partij: value.data[index],
+                          ),
+                        ),
+                      );
+                    },
+                    child: Card(
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      child: isLoading
+                          ? Container(
+                              child: Loading(),
+                            )
+                          : Image.network(
+                              value.data[index].logo,
+                              fit: BoxFit.fill,
+                            ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      elevation: 3,
+                    ),
+                  ),
+                );
+              },
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: (itemWidth / itemHeight),
+              ),
+            );
           },
         ),
       ),

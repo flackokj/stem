@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:stem/screens/homeScreen.dart';
 
 //IMPORT WIDGETS
 import 'package:stem/widgets/customWidgets.dart';
 
-class LaunchScreen extends StatelessWidget {
+//IMPORT SCREENS
+import 'package:stem/screens/homeScreen.dart';
+
+class LaunchScreen extends StatefulWidget {
+  @override
+  _LaunchScreenState createState() => _LaunchScreenState();
+}
+
+class _LaunchScreenState extends State<LaunchScreen> {
   void signIn(BuildContext context) {
     Navigator.push(
       context,
@@ -32,8 +39,8 @@ class LaunchScreen extends StatelessWidget {
             height: 200.0,
           ),
           LoginButton(
-            label: 'Anoniem Sign In',
-            onPressed: () {
+            label: 'Anoniem Login',
+            onPressed: () async {
               signIn(context);
             },
           ),

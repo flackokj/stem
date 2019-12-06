@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stem/screens/chartScreen.dart';
 
 //IMPORT WIDGETS
 import 'package:stem/widgets/customWidgets.dart';

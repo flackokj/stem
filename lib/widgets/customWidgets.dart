@@ -121,6 +121,7 @@ class CreateChart extends StatelessWidget {
       barRendererDecorator: charts.BarLabelDecorator<String>(
         insideLabelStyleSpec: new charts.TextStyleSpec(),
       ),
+      animationDuration: Duration(seconds: 1),
     );
   }
 }
