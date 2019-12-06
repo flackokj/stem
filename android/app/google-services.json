@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "489756214831",
+    "firebase_url": "https://stem-11aed.firebaseio.com",
+    "project_id": "stem-11aed",
+    "storage_bucket": "stem-11aed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489756214831:android:9c29b4fabb1a4fa46ee8da",
+        "android_client_info": {
+          "package_name": "com.example.stem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489756214831-isvq70g4c5i25ifqns7i0fqmsn2ujnar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvqONxO1OdlM1yKHJTIkEKNgThpZQxdv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489756214831-isvq70g4c5i25ifqns7i0fqmsn2ujnar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

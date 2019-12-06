@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:stem/models/partij.dart';
 import 'dart:async';
-import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:stem/screens/chartScreen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 //IMPORT SCREENS
 import 'package:stem/screens/infoScreen.dart';
+import 'package:stem/screens/chartScreen.dart';
 
 //IMPORT WIDGETS
-import 'package:stem/widgets/customWidgets.dart';
+import 'package:stem/widgets/loadingText.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,37 +15,27 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Future<String> _loadPartij() async {
-    return await rootBundle.loadString('assets/partij.json');
+  Future _data;
+
+  Future getPartijData() async {
+    var firestore = Firestore.instance;
+
+    QuerySnapshot qn = await firestore.collection('partij').getDocuments();
+
+    print(qn.documents.length);
+    return qn.documents;
   }
 
-  Future<List<Partij>> _getPartij() async {
-    var jsonString = await _loadPartij();
-    var jsonResponse = json.decode(jsonString);
+  void initState() {
+    super.initState();
 
-    List<Partij> partijList = [];
-
-    for (var i in jsonResponse) {
-      Partij partij = Partij(
-        index: i['index'],
-        naam: i['naam'],
-        details: i['details'],
-        logo: i['logo'],
-      );
-      partijList.add(partij);
-    }
-
-    // print(partijList.length);
-    return partijList;
+    _data = getPartijData();
   }
-
-  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    /*24 is for notification bar on Android*/
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
     final double itemWidth = size.width / 2;
 
@@ -78,53 +66,50 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Container(
         child: FutureBuilder(
-          future: _getPartij(),
-          builder: (BuildContext context, AsyncSnapshot value) {
-            if (!value.hasData) {
-              return Container(
+          future: _data,
+          builder: (_, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
                 child: Loading(),
               );
-            }
-            return GridView.builder(
-              physics: BouncingScrollPhysics(),
-              itemCount: value.data.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InfoScreen(
-                            partij: value.data[index],
-                          ),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      semanticContainer: true,
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      child: isLoading
-                          ? Container(
-                              child: Loading(),
-                            )
-                          : Image.network(
-                              value.data[index].logo,
-                              fit: BoxFit.fill,
+            } else {
+              return GridView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: snapshot.data.length,
+                itemBuilder: (_, index) {
+                  return Container(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => InfoScreen(
+                              partij: snapshot.data[index],
                             ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+                          ),
+                        );
+                      },
+                      child: Card(
+                        semanticContainer: true,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        child: Image.network(
+                          snapshot.data[index].data['logo'],
+                          fit: BoxFit.fill,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        elevation: 3,
                       ),
-                      elevation: 3,
                     ),
-                  ),
-                );
-              },
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: (itemWidth / itemHeight),
-              ),
-            );
+                  );
+                },
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: (itemWidth / itemHeight),
+                ),
+              );
+            }
           },
         ),
       ),

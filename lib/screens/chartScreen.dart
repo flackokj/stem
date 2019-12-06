@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'dart:async' show Future;
-import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:stem/models/partij.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:stem/widgets/customWidgets.dart';
+//IMPORT WIDGETS
+import 'package:stem/widgets/loadingText.dart';
+import 'package:stem/widgets/createChart.dart';
+
+//IMPORT MODEL
+import 'package:stem/models/stem.dart';
 
 class ChartScreen extends StatefulWidget {
   @override
@@ -15,15 +18,12 @@ class ChartScreen extends StatefulWidget {
 class _ChartScreenState extends State<ChartScreen> {
   List<StemData> stemDataList = [];
 
-  Future<String> _loadPartijAsset() async {
-    return await rootBundle.loadString('assets/partij.json');
-  }
+  Future _getPartijData() async {
+    var firestore = Firestore.instance;
 
-  Future<List<StemData>> _getPartijData() async {
-    var jsonString = await _loadPartijAsset();
-    var jsonResponse = json.decode(jsonString);
+    QuerySnapshot qn = await firestore.collection('partij').getDocuments();
 
-    for (var i in jsonResponse) {
+    for (var i in qn.documents) {
       StemData partij = StemData(
         partij: i['naam'],
         stemmen: i['stem'],
@@ -31,7 +31,7 @@ class _ChartScreenState extends State<ChartScreen> {
       stemDataList.add(partij);
     }
 
-    // print(stemDataList.length);
+    print(stemDataList.length);
     return stemDataList;
   }
 
@@ -63,7 +63,6 @@ class _ChartScreenState extends State<ChartScreen> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.all(10),
         child: FutureBuilder(
           future: _getPartijData(),
           builder: (BuildContext context, AsyncSnapshot value) {

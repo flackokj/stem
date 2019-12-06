@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 //IMPORT WIDGETS
-import 'package:stem/widgets/customWidgets.dart';
+import 'package:stem/widgets/infoCard.dart';
+import 'package:stem/widgets/stemButton.dart';
 
-//IMPORT MODELS
-import 'package:stem/models/partij.dart';
-
-class InfoScreen extends StatelessWidget {
-  final Partij partij;
+class InfoScreen extends StatefulWidget {
+  final DocumentSnapshot partij;
   InfoScreen({this.partij});
 
+  @override
+  _InfoScreenState createState() => _InfoScreenState();
+}
+
+class _InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          partij.naam,
+          widget.partij.data['naam'],
           style: TextStyle(
             color: Colors.green,
           ),
@@ -34,7 +38,7 @@ class InfoScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               InfoCard(
-                detail: partij.details,
+                detail: widget.partij.data['details'],
               ),
               Container(
                 margin: EdgeInsets.all(10),
@@ -42,11 +46,21 @@ class InfoScreen extends StatelessWidget {
               StemButton(
                 label: 'Stem!',
                 onPressed: () {
-                  print('U heeft succesvol gestemd op ' + partij.naam + '!');
+                  Firestore.instance.runTransaction((transaction) async {
+                    DocumentSnapshot snap =
+                        await transaction.get(widget.partij.reference);
+                    await transaction
+                        .update(snap.reference, {'stem': snap['stem'] + 1});
+                  });
+                  print('U heeft succesvol gestemd op ' +
+                      widget.partij.data['naam'] +
+                      '!');
                   Scaffold.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                        'Geweldig!\n' 'U heeft gestemd op ' + partij.naam + '!',
+                        'Geweldig!\n' 'U heeft gestemd op ' +
+                            widget.partij.data['naam'] +
+                            '!',
                       ),
                       duration: Duration(
                         seconds: 4,

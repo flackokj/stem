@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //IMPORT WIDGETS
-import 'package:stem/widgets/customWidgets.dart';
+import 'package:stem/widgets/loginButton.dart';
 
 //IMPORT SCREENS
 import 'package:stem/screens/homeScreen.dart';
