@@ -36,7 +36,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
             ),
           ),
           SizedBox(
-            height: 200.0,
+            height: 100.0,
           ),
           LoginButton(
             label: 'Anoniem Login',
